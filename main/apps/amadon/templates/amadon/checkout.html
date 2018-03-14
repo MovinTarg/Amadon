@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Amadon CheckOut</title>
+        <!-- Load Static -->
+        {% load static %}
+        <link rel="stylesheet" types="text/css" href="{% static "amadon/style.css" %}">
+        <!-- Load BootStrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Thank you for your business!</h1>
+            <p>We charged your credit card for ${{ price }}.</p>
+            <p>You have ordered {{ tItems }} items so far and spent ${{ tPrice }} with Amadon.com!</p>
+            <form class='' action='/goBack' method="POST">
+                {% csrf_token %}
+                <input class='btn-link' type="submit" value="Go Back">
+            </form>
+        </div>
+    </body>
+</html>
